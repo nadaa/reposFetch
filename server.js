@@ -3,6 +3,8 @@ const bodyParser=require('body-parser');
 const morgan=require('morgan');
 const githubhelpers=require('./helpers/githubhelpers');
 const jsonhelpthers=require('./helpers/jsonhelpers');
+const mongoose=require('mongoose');
+const config=require('./config');
 
 
 //create an instance of express
@@ -13,7 +15,7 @@ let PORT=8000||process.env.PORT;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(morgan('combined'))
-
+mongoose.connect(config.db);
 
 app.get('/topic/:term',function(req,res){
 	let term=req.params.term;
@@ -46,6 +48,19 @@ app.delete('/delbookm/:b', function(req,res){
 	jsonhelpthers.removeBookmark(bookmark);
 	res.status(200).send();
 })
+
+
+
+app.post('/signup',function(req,res){
+	//create a new user
+
+})
+
+app.post('/login',function(req,res){
+	//authenticate user
+})
+
+
 
 app.listen(PORT,()=> console.log(`listening to port ${PORT}`));
 
