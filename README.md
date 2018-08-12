@@ -15,9 +15,6 @@ npm install
 ```
 ## Run
 
-You need first to aquire a GitHub token from 
-
-and paste it in the file 
 ```
 node server.js
 ```
