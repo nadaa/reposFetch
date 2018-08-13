@@ -13,11 +13,11 @@ Inside repoFetch repo, run the following to install all dependencies:
 ```
 npm install
 ```
+
 ## Run
-
 You need first to acquire a GitHub token from https://github.com/settings/tokens
-
 and paste the value in the key gitToken in config/config.py file.
+
 ```
 node server.js
 ```
