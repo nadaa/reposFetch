@@ -1,5 +1,5 @@
 
 module.exports={
   db: '',
-  gitToken:'e33f7851c42d2757adaa50ddcacea867782827f0'
+  gitToken:'717803bcdbd3d1d2f9a0224f3d5e83167514cb12'
 }

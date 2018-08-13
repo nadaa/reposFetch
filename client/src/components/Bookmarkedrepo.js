@@ -13,15 +13,20 @@ class Bookmarkedrepo extends Component{
 		}
 	}
 
+	getBookmarks(){
+		fetch('/bookmarks')
+		.then((response)=>response.json())
+		.then((responsejson)=> {
+			this.setState({bookmarked:responsejson});
+		})
+		.catch((err)=>{
+			console.error(err);
+		})
+
+
+	}
 	componentDidMount(){
-		var that=this;
-		axios.get('/bookmarks')
-	  	.then(function (response) {
-	    	that.setState({bookmarked:response.data});
-	  	})
-	  	.catch(function (error) {
-	    console.log(error);
-	  	});
+		this.getBookmarks();
 	}
 
 	removeBookmark(){
@@ -29,6 +34,7 @@ class Bookmarkedrepo extends Component{
 		let idToDelete=this.state.selectedRepo.id;
 		updatedBookmarked=this.state.bookmarked.filter(function(repoBooked){return repoBooked.id!==idToDelete});
 		axios.delete(`/delbookm/${idToDelete}`);
+		this.getBookmarks();
 	}
 
 	render(){
