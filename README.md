@@ -18,10 +18,21 @@ npm install
 You need first to acquire a GitHub token from https://github.com/settings/tokens
 and paste the value in the key gitToken in config/config.py file.
 
+
+### Run the server
 ```
 node server.js
 ```
-If it went well, you can find the app up and run at http://localhost:8000
+
+### Run the client
+
+change to client directory and run
+
+```
+npm start
+
+```
+If it went well, you can find the app up and run at http://localhost:3000
 
 ## API Test
 ```
